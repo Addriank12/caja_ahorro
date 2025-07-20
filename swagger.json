@@ -1,0 +1,3424 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "SistemaCajaAhorro",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Aportaciones": {
+      "get": {
+        "tags": [
+          "Aportaciones"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Aportacione"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Aportacione"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Aportacione"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Aportaciones"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Aportacione"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Aportacione"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Aportacione"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aportacione"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aportacione"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aportacione"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Aportaciones/{id}": {
+      "get": {
+        "tags": [
+          "Aportaciones"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aportacione"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aportacione"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aportacione"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Aportaciones"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Aportacione"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Aportacione"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Aportacione"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Aportaciones"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Aportaciones/socio/{idSocio}": {
+      "get": {
+        "tags": [
+          "Aportaciones"
+        ],
+        "parameters": [
+          {
+            "name": "idSocio",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Aportacione"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Aportacione"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Aportacione"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Aportaciones/estado/{estado}": {
+      "get": {
+        "tags": [
+          "Aportaciones"
+        ],
+        "parameters": [
+          {
+            "name": "estado",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Aportacione"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Aportacione"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Aportacione"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/CuentasAhorro": {
+      "get": {
+        "tags": [
+          "CuentasAhorro"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CuentasAhorro"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CuentasAhorro"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CuentasAhorro"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "CuentasAhorro"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CuentasAhorro"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CuentasAhorro"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CuentasAhorro"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CuentasAhorro"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CuentasAhorro"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CuentasAhorro"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/CuentasAhorro/{id}": {
+      "get": {
+        "tags": [
+          "CuentasAhorro"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CuentasAhorro"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CuentasAhorro"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CuentasAhorro"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "CuentasAhorro"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CuentasAhorro"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CuentasAhorro"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CuentasAhorro"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "CuentasAhorro"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/CuentasAhorro/socio/{idSocio}": {
+      "get": {
+        "tags": [
+          "CuentasAhorro"
+        ],
+        "parameters": [
+          {
+            "name": "idSocio",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CuentasAhorro"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CuentasAhorro"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CuentasAhorro"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/CuentasAhorro/estado/{estado}": {
+      "get": {
+        "tags": [
+          "CuentasAhorro"
+        ],
+        "parameters": [
+          {
+            "name": "estado",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CuentasAhorro"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CuentasAhorro"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CuentasAhorro"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/CuentasAhorro/resumen/{cedula}/{numeroCuenta}": {
+      "get": {
+        "tags": [
+          "CuentasAhorro"
+        ],
+        "parameters": [
+          {
+            "name": "cedula",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "numeroCuenta",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/HistorialAccione": {
+      "get": {
+        "tags": [
+          "HistorialAccione"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/HistorialAccione"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/HistorialAccione"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/HistorialAccione"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "HistorialAccione"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HistorialAccione"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HistorialAccione"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/HistorialAccione"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/HistorialAccione"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HistorialAccione"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HistorialAccione"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/HistorialAccione/{id}": {
+      "get": {
+        "tags": [
+          "HistorialAccione"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/HistorialAccione"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HistorialAccione"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HistorialAccione"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "HistorialAccione"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HistorialAccione"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HistorialAccione"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/HistorialAccione"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "HistorialAccione"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/LibroDiario": {
+      "get": {
+        "tags": [
+          "LibroDiario"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LibroDiario"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LibroDiario"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LibroDiario"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "LibroDiario"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LibroDiario"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LibroDiario"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LibroDiario"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LibroDiario"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LibroDiario"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LibroDiario"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/LibroDiario/{id}": {
+      "get": {
+        "tags": [
+          "LibroDiario"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LibroDiario"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LibroDiario"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LibroDiario"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/LibroDiario/fecha/{fechaInicio}/{fechaFin}": {
+      "get": {
+        "tags": [
+          "LibroDiario"
+        ],
+        "parameters": [
+          {
+            "name": "fechaInicio",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "fechaFin",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LibroDiario"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LibroDiario"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LibroDiario"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/LibroDiario/cuenta/{idCuenta}": {
+      "get": {
+        "tags": [
+          "LibroDiario"
+        ],
+        "parameters": [
+          {
+            "name": "idCuenta",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DetalleLibroDiario"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DetalleLibroDiario"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DetalleLibroDiario"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/LibroDiario/estado/{estado}": {
+      "get": {
+        "tags": [
+          "LibroDiario"
+        ],
+        "parameters": [
+          {
+            "name": "estado",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LibroDiario"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LibroDiario"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LibroDiario"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/MovimientosAhorro": {
+      "get": {
+        "tags": [
+          "MovimientosAhorro"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MovimientosAhorro"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MovimientosAhorro"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MovimientosAhorro"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "MovimientosAhorro"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MovimientosAhorro"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MovimientosAhorro"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/MovimientosAhorro"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MovimientosAhorro"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MovimientosAhorro"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MovimientosAhorro"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/MovimientosAhorro/{id}": {
+      "get": {
+        "tags": [
+          "MovimientosAhorro"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MovimientosAhorro"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MovimientosAhorro"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MovimientosAhorro"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "MovimientosAhorro"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/MovimientosAhorro/cuenta/{idCuenta}": {
+      "get": {
+        "tags": [
+          "MovimientosAhorro"
+        ],
+        "parameters": [
+          {
+            "name": "idCuenta",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MovimientosAhorro"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MovimientosAhorro"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MovimientosAhorro"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/MovimientosAhorro/tipo/{tipo}": {
+      "get": {
+        "tags": [
+          "MovimientosAhorro"
+        ],
+        "parameters": [
+          {
+            "name": "tipo",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MovimientosAhorro"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MovimientosAhorro"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MovimientosAhorro"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/MovimientosAhorro/fecha/{fechaInicio}/{fechaFin}": {
+      "get": {
+        "tags": [
+          "MovimientosAhorro"
+        ],
+        "parameters": [
+          {
+            "name": "fechaInicio",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "fechaFin",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MovimientosAhorro"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MovimientosAhorro"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MovimientosAhorro"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/PagosCredito": {
+      "get": {
+        "tags": [
+          "PagosCredito"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PagosCredito"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PagosCredito"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PagosCredito"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "PagosCredito"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PagosCredito"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PagosCredito"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PagosCredito"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagosCredito"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagosCredito"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagosCredito"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/PagosCredito/{id}": {
+      "get": {
+        "tags": [
+          "PagosCredito"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagosCredito"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagosCredito"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagosCredito"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/PagosCredito/credito/{idCredito}": {
+      "get": {
+        "tags": [
+          "PagosCredito"
+        ],
+        "parameters": [
+          {
+            "name": "idCredito",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PagosCredito"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PagosCredito"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PagosCredito"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/PagosCredito/estado/{estado}": {
+      "get": {
+        "tags": [
+          "PagosCredito"
+        ],
+        "parameters": [
+          {
+            "name": "estado",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PagosCredito"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PagosCredito"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PagosCredito"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/PagosCredito/fecha/{fechaInicio}/{fechaFin}": {
+      "get": {
+        "tags": [
+          "PagosCredito"
+        ],
+        "parameters": [
+          {
+            "name": "fechaInicio",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "fechaFin",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PagosCredito"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PagosCredito"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PagosCredito"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ParametrosGenerale": {
+      "get": {
+        "tags": [
+          "ParametrosGenerale"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ParametrosGenerale"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ParametrosGenerale"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ParametrosGenerale"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "ParametrosGenerale"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParametrosGenerale"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParametrosGenerale"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParametrosGenerale"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ParametrosGenerale"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ParametrosGenerale"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ParametrosGenerale"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ParametrosGenerale/{id}": {
+      "get": {
+        "tags": [
+          "ParametrosGenerale"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ParametrosGenerale"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ParametrosGenerale"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ParametrosGenerale"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "ParametrosGenerale"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParametrosGenerale"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParametrosGenerale"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParametrosGenerale"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ParametrosGenerale"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/PlanCuenta": {
+      "get": {
+        "tags": [
+          "PlanCuenta"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PlanCuenta"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PlanCuenta"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PlanCuenta"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "PlanCuenta"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PlanCuenta"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PlanCuenta"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PlanCuenta"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanCuenta"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanCuenta"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanCuenta"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/PlanCuenta/{id}": {
+      "get": {
+        "tags": [
+          "PlanCuenta"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanCuenta"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanCuenta"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanCuenta"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "PlanCuenta"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PlanCuenta"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PlanCuenta"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PlanCuenta"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "PlanCuenta"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Socio": {
+      "get": {
+        "tags": [
+          "Socio"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Socio"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Socio"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Socio"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Socio"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Socio"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Socio"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Socio"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Socio"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Socio"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Socio"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Socio/{id}": {
+      "get": {
+        "tags": [
+          "Socio"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Socio"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Socio"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Socio"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Socio"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Socio"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Socio"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Socio"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Socio"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Usuarios": {
+      "get": {
+        "tags": [
+          "Usuarios"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Usuario"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Usuario"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Usuario"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Usuarios"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Usuario"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Usuario"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Usuario"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Usuario"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Usuario"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Usuario"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Usuarios/{id}": {
+      "get": {
+        "tags": [
+          "Usuarios"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Usuario"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Usuario"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Usuario"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Usuarios"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Usuario"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Usuario"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Usuario"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Usuarios"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Aportacione": {
+        "type": "object",
+        "properties": {
+          "idAportacion": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idSocio": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idTipoAportacion": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "numeroComprobante": {
+            "type": "string",
+            "nullable": true
+          },
+          "monto": {
+            "type": "number",
+            "format": "double"
+          },
+          "fechaAportacion": {
+            "type": "string",
+            "format": "date"
+          },
+          "motivo": {
+            "type": "string",
+            "nullable": true
+          },
+          "metodoPago": {
+            "type": "string",
+            "nullable": true
+          },
+          "estado": {
+            "type": "string",
+            "nullable": true
+          },
+          "usuarioRegistro": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fechaRegistro": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "observaciones": {
+            "type": "string",
+            "nullable": true
+          },
+          "idSocioNavigation": {
+            "$ref": "#/components/schemas/Socio"
+          },
+          "idTipoAportacionNavigation": {
+            "$ref": "#/components/schemas/TiposAportacion"
+          },
+          "usuarioRegistroNavigation": {
+            "$ref": "#/components/schemas/Usuario"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Credito": {
+        "type": "object",
+        "properties": {
+          "idCredito": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idSolicitud": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idSocio": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "numeroCredito": {
+            "type": "string",
+            "nullable": true
+          },
+          "montoAprobado": {
+            "type": "number",
+            "format": "double"
+          },
+          "tasaInteres": {
+            "type": "number",
+            "format": "double"
+          },
+          "plazoMeses": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "cuotaMensual": {
+            "type": "number",
+            "format": "double"
+          },
+          "saldoCapital": {
+            "type": "number",
+            "format": "double"
+          },
+          "fechaAprobacion": {
+            "type": "string",
+            "format": "date"
+          },
+          "fechaDesembolso": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "fechaVencimiento": {
+            "type": "string",
+            "format": "date"
+          },
+          "estado": {
+            "type": "string",
+            "nullable": true
+          },
+          "usuarioAprobacion": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idSocioNavigation": {
+            "$ref": "#/components/schemas/Socio"
+          },
+          "idSolicitudNavigation": {
+            "$ref": "#/components/schemas/SolicitudesCredito"
+          },
+          "pagosCreditos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PagosCredito"
+            },
+            "nullable": true
+          },
+          "tablaAmortizacions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TablaAmortizacion"
+            },
+            "nullable": true
+          },
+          "usuarioAprobacionNavigation": {
+            "$ref": "#/components/schemas/Usuario"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CuentasAhorro": {
+        "type": "object",
+        "properties": {
+          "idCuentaAhorro": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idSocio": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "numeroCuenta": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipoCuenta": {
+            "type": "string",
+            "nullable": true
+          },
+          "saldoActual": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "tasaInteres": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "fechaApertura": {
+            "type": "string",
+            "format": "date"
+          },
+          "estado": {
+            "type": "string",
+            "nullable": true
+          },
+          "montoMinimo": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "fechaUltimoMovimiento": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "idSocioNavigation": {
+            "$ref": "#/components/schemas/Socio"
+          },
+          "movimientosAhorros": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MovimientosAhorro"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DetalleLibroDiario": {
+        "type": "object",
+        "properties": {
+          "idDetalle": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idAsiento": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idCuentaContable": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "concepto": {
+            "type": "string",
+            "nullable": true
+          },
+          "debe": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "haber": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "ordenLinea": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "idAsientoNavigation": {
+            "$ref": "#/components/schemas/LibroDiario"
+          },
+          "idCuentaContableNavigation": {
+            "$ref": "#/components/schemas/PlanCuenta"
+          }
+        },
+        "additionalProperties": false
+      },
+      "HistorialAccione": {
+        "type": "object",
+        "properties": {
+          "idHistorial": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idUsuario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "accion": {
+            "type": "string",
+            "nullable": true
+          },
+          "tablaAfectada": {
+            "type": "string",
+            "nullable": true
+          },
+          "idRegistroAfectado": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "valoresAnteriores": {
+            "type": "string",
+            "nullable": true
+          },
+          "valoresNuevos": {
+            "type": "string",
+            "nullable": true
+          },
+          "ipUsuario": {
+            "type": "string",
+            "nullable": true
+          },
+          "userAgent": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaAccion": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "idUsuarioNavigation": {
+            "$ref": "#/components/schemas/Usuario"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LibroDiario": {
+        "type": "object",
+        "properties": {
+          "idAsiento": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "numeroAsiento": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaAsiento": {
+            "type": "string",
+            "format": "date"
+          },
+          "concepto": {
+            "type": "string",
+            "nullable": true
+          },
+          "totalDebe": {
+            "type": "number",
+            "format": "double"
+          },
+          "totalHaber": {
+            "type": "number",
+            "format": "double"
+          },
+          "usuarioRegistro": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fechaRegistro": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "estado": {
+            "type": "string",
+            "nullable": true
+          },
+          "detalleLibroDiarios": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DetalleLibroDiario"
+            },
+            "nullable": true
+          },
+          "usuarioRegistroNavigation": {
+            "$ref": "#/components/schemas/Usuario"
+          }
+        },
+        "additionalProperties": false
+      },
+      "MovimientosAhorro": {
+        "type": "object",
+        "properties": {
+          "idMovimiento": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idCuentaAhorro": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tipoMovimiento": {
+            "type": "string",
+            "nullable": true
+          },
+          "monto": {
+            "type": "number",
+            "format": "double"
+          },
+          "saldoAnterior": {
+            "type": "number",
+            "format": "double"
+          },
+          "saldoNuevo": {
+            "type": "number",
+            "format": "double"
+          },
+          "descripcion": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaMovimiento": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "numeroComprobante": {
+            "type": "string",
+            "nullable": true
+          },
+          "usuarioRegistro": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idCuentaContable": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "idCuentaAhorroNavigation": {
+            "$ref": "#/components/schemas/CuentasAhorro"
+          },
+          "idCuentaContableNavigation": {
+            "$ref": "#/components/schemas/PlanCuenta"
+          },
+          "usuarioRegistroNavigation": {
+            "$ref": "#/components/schemas/Usuario"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PagosCredito": {
+        "type": "object",
+        "properties": {
+          "idPago": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idCredito": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idCuota": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "estado": {
+            "type": "string",
+            "nullable": true
+          },
+          "montoPago": {
+            "type": "number",
+            "format": "double"
+          },
+          "montoCapital": {
+            "type": "number",
+            "format": "double"
+          },
+          "montoInteres": {
+            "type": "number",
+            "format": "double"
+          },
+          "montoMora": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "fechaPago": {
+            "type": "string",
+            "format": "date"
+          },
+          "metodoPago": {
+            "type": "string",
+            "nullable": true
+          },
+          "numeroComprobante": {
+            "type": "string",
+            "nullable": true
+          },
+          "usuarioRegistro": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "observaciones": {
+            "type": "string",
+            "nullable": true
+          },
+          "idCreditoNavigation": {
+            "$ref": "#/components/schemas/Credito"
+          },
+          "idCuotaNavigation": {
+            "$ref": "#/components/schemas/TablaAmortizacion"
+          },
+          "usuarioRegistroNavigation": {
+            "$ref": "#/components/schemas/Usuario"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ParametrosGenerale": {
+        "type": "object",
+        "properties": {
+          "idParametro": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombreParametro": {
+            "type": "string",
+            "nullable": true
+          },
+          "valorParametro": {
+            "type": "string",
+            "nullable": true
+          },
+          "descripcion": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipoDato": {
+            "type": "string",
+            "nullable": true
+          },
+          "modulo": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaActualizacion": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "usuarioActualizacion": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "usuarioActualizacionNavigation": {
+            "$ref": "#/components/schemas/Usuario"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PlanCuenta": {
+        "type": "object",
+        "properties": {
+          "idCuenta": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "codigoCuenta": {
+            "type": "string",
+            "nullable": true
+          },
+          "nombreCategoria": {
+            "type": "string",
+            "nullable": true
+          },
+          "descripcion": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipoCuenta": {
+            "type": "string",
+            "nullable": true
+          },
+          "cuentaPadre": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "nivel": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "valorMonetario": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "estado": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "fechaCreacion": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "cuentaPadreNavigation": {
+            "$ref": "#/components/schemas/PlanCuenta"
+          },
+          "detalleLibroDiarios": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DetalleLibroDiario"
+            },
+            "nullable": true
+          },
+          "inverseCuentaPadreNavigation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PlanCuenta"
+            },
+            "nullable": true
+          },
+          "movimientosAhorros": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MovimientosAhorro"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SesionesUsuario": {
+        "type": "object",
+        "properties": {
+          "idSesion": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idUsuario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tokenSesion": {
+            "type": "string",
+            "nullable": true
+          },
+          "ipAcceso": {
+            "type": "string",
+            "nullable": true
+          },
+          "userAgent": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaInicio": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "fechaUltimoAcceso": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "estado": {
+            "type": "string",
+            "nullable": true
+          },
+          "idUsuarioNavigation": {
+            "$ref": "#/components/schemas/Usuario"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Socio": {
+        "type": "object",
+        "properties": {
+          "idSocio": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "numeroSocio": {
+            "type": "string",
+            "nullable": true
+          },
+          "cedula": {
+            "type": "string",
+            "nullable": true
+          },
+          "nombres": {
+            "type": "string",
+            "nullable": true
+          },
+          "apellidos": {
+            "type": "string",
+            "nullable": true
+          },
+          "correo": {
+            "type": "string",
+            "nullable": true
+          },
+          "telefono": {
+            "type": "string",
+            "nullable": true
+          },
+          "direccion": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaNacimiento": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "ciudad": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaIngreso": {
+            "type": "string",
+            "format": "date"
+          },
+          "estado": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaCreacion": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "observaciones": {
+            "type": "string",
+            "nullable": true
+          },
+          "aportaciones": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Aportacione"
+            },
+            "nullable": true
+          },
+          "creditos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Credito"
+            },
+            "nullable": true
+          },
+          "cuentasAhorros": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CuentasAhorro"
+            },
+            "nullable": true
+          },
+          "solicitudesCreditos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SolicitudesCredito"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SolicitudesCredito": {
+        "type": "object",
+        "properties": {
+          "idSolicitud": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idSocio": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "montoSolicitado": {
+            "type": "number",
+            "format": "double"
+          },
+          "plazoMeses": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tasaInteres": {
+            "type": "number",
+            "format": "double"
+          },
+          "destinoCredito": {
+            "type": "string",
+            "nullable": true
+          },
+          "ingresosMensuales": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "gastosMensuales": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "fechaSolicitud": {
+            "type": "string",
+            "format": "date"
+          },
+          "estado": {
+            "type": "string",
+            "nullable": true
+          },
+          "motivoRechazo": {
+            "type": "string",
+            "nullable": true
+          },
+          "usuarioEvaluador": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "fechaEvaluacion": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "observaciones": {
+            "type": "string",
+            "nullable": true
+          },
+          "creditos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Credito"
+            },
+            "nullable": true
+          },
+          "idSocioNavigation": {
+            "$ref": "#/components/schemas/Socio"
+          },
+          "usuarioEvaluadorNavigation": {
+            "$ref": "#/components/schemas/Usuario"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TablaAmortizacion": {
+        "type": "object",
+        "properties": {
+          "idCuota": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idCredito": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "numeroCuota": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fechaVencimiento": {
+            "type": "string",
+            "format": "date"
+          },
+          "cuotaCapital": {
+            "type": "number",
+            "format": "double"
+          },
+          "cuotaInteres": {
+            "type": "number",
+            "format": "double"
+          },
+          "cuotaTotal": {
+            "type": "number",
+            "format": "double"
+          },
+          "saldoPendiente": {
+            "type": "number",
+            "format": "double"
+          },
+          "estado": {
+            "type": "string",
+            "nullable": true
+          },
+          "idCreditoNavigation": {
+            "$ref": "#/components/schemas/Credito"
+          },
+          "pagosCreditos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PagosCredito"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TiposAportacion": {
+        "type": "object",
+        "properties": {
+          "idTipoAportacion": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombreTipo": {
+            "type": "string",
+            "nullable": true
+          },
+          "descripcion": {
+            "type": "string",
+            "nullable": true
+          },
+          "montoMinimo": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "esObligatoria": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "frecuencia": {
+            "type": "string",
+            "nullable": true
+          },
+          "estado": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "aportaciones": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Aportacione"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Usuario": {
+        "type": "object",
+        "properties": {
+          "idUsuario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "cedula": {
+            "type": "string",
+            "nullable": true
+          },
+          "nombres": {
+            "type": "string",
+            "nullable": true
+          },
+          "apellidos": {
+            "type": "string",
+            "nullable": true
+          },
+          "direccion": {
+            "type": "string",
+            "nullable": true
+          },
+          "correo": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaNacimiento": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "ciudad": {
+            "type": "string",
+            "nullable": true
+          },
+          "contrasena": {
+            "type": "string",
+            "nullable": true
+          },
+          "perfilAcceso": {
+            "type": "string",
+            "nullable": true
+          },
+          "estado": {
+            "type": "boolean"
+          },
+          "fechaCreacion": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "ultimoAcceso": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "aportaciones": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Aportacione"
+            },
+            "nullable": true
+          },
+          "creditos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Credito"
+            },
+            "nullable": true
+          },
+          "historialAcciones": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HistorialAccione"
+            },
+            "nullable": true
+          },
+          "libroDiarios": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LibroDiario"
+            },
+            "nullable": true
+          },
+          "movimientosAhorros": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MovimientosAhorro"
+            },
+            "nullable": true
+          },
+          "pagosCreditos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PagosCredito"
+            },
+            "nullable": true
+          },
+          "parametrosGenerales": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParametrosGenerale"
+            },
+            "nullable": true
+          },
+          "sesionesUsuarios": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SesionesUsuario"
+            },
+            "nullable": true
+          },
+          "solicitudesCreditos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SolicitudesCredito"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
