@@ -1,39 +1,18 @@
 import { useState } from "react";
-import {
-  Card,
-  Button,
-  Table,
-  LoadingSpinner,
-  Alert,
-  Input,
-} from "../components/ui";
+import { Search, Plus, Edit, Trash2, Eye } from "lucide-react";
 import { useSocios } from "../hooks/useApi";
-import { Plus, Search, Edit, Trash2, Eye } from "lucide-react";
+import SocioForm from "../components/forms/SocioForm";
 import type { Socio } from "../types/api";
+import { Button, Card, Input } from "../components/ui";
 
 export default function Socios() {
   const { data: socios, loading, error, refetch } = useSocios();
   const [searchTerm, setSearchTerm] = useState("");
-  const [showCreateModal, setShowCreateModal] = useState(false);
-
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center h-64">
-        <LoadingSpinner size="lg" />
-        <span className="ml-2 text-gray-600">Cargando socios...</span>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <Alert type="error" title="Error al cargar socios">
-        {error}
-      </Alert>
-    );
-  }
+  const [showForm, setShowForm] = useState(false);
+  const [editingSocio, setEditingSocio] = useState<Socio | null>(null);
 
   const sociosArray = Array.isArray(socios) ? socios : [];
+
   const filteredSocios = sociosArray.filter(
     (socio: Socio) =>
       socio.nombres?.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -41,6 +20,52 @@ export default function Socios() {
       socio.cedula?.includes(searchTerm) ||
       socio.numeroSocio?.includes(searchTerm)
   );
+
+  console.log("Filtered socios:", filteredSocios);
+
+  const handleCreate = () => {
+    setEditingSocio(null);
+    setShowForm(true);
+  };
+
+  const handleEdit = (socio: Socio) => {
+    setEditingSocio(socio);
+    setShowForm(true);
+  };
+
+  const handleFormSuccess = () => {
+    setShowForm(false);
+    setEditingSocio(null);
+    refetch();
+  };
+
+  const handleFormCancel = () => {
+    setShowForm(false);
+    setEditingSocio(null);
+  };
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-64">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="bg-red-50 border border-red-200 rounded-md p-4">
+        <div className="flex">
+          <div className="ml-3">
+            <h3 className="text-sm font-medium text-red-800">
+              Error al cargar los socios
+            </h3>
+            <div className="mt-2 text-sm text-red-700">{error}</div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6">
@@ -53,7 +78,7 @@ export default function Socios() {
             Administra los socios de la caja de ahorro
           </p>
         </div>
-        <Button onClick={() => setShowCreateModal(true)}>
+        <Button onClick={handleCreate}>
           <Plus className="h-4 w-4 mr-2" />
           Nuevo Socio
         </Button>
@@ -81,62 +106,94 @@ export default function Socios() {
       </Card>
 
       {/* Results */}
-      <Card title={`Socios (${filteredSocios.length})`}>
+      <Card
+        title={`Socios (${filteredSocios.length}) - Total: ${sociosArray.length}`}
+      >
+        {/* Debug info */}
+        <div className="mb-4 p-2 bg-gray-100 text-sm rounded">
+          <strong>Debug:</strong> Loading: {loading ? "Sí" : "No"}, Error:{" "}
+          {error || "Ninguno"}, Data type: {typeof socios}, Is array:{" "}
+          {Array.isArray(socios) ? "Sí" : "No"}, Raw length:{" "}
+          {socios ? (Array.isArray(socios) ? socios.length : "N/A") : "0"}
+        </div>
+
         {filteredSocios.length > 0 ? (
-          <Table
-            headers={[
-              "Número",
-              "Cédula",
-              "Nombre Completo",
-              "Teléfono",
-              "Estado",
-              "Acciones",
-            ]}
-          >
-            {filteredSocios.map((socio: Socio) => (
-              <tr key={socio.idSocio}>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                  {socio.numeroSocio || "N/A"}
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                  {socio.cedula || "N/A"}
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                  {`${socio.nombres || ""} ${socio.apellidos || ""}`.trim() ||
-                    "N/A"}
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                  {socio.telefono || "N/A"}
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  <span
-                    className={`inline-flex px-2 py-1 text-xs font-medium rounded-full ${
-                      socio.estado === "Activo"
-                        ? "bg-green-100 text-green-800"
-                        : socio.estado === "Inactivo"
-                        ? "bg-red-100 text-red-800"
-                        : "bg-gray-100 text-gray-800"
-                    }`}
-                  >
-                    {socio.estado || "N/A"}
-                  </span>
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                  <div className="flex space-x-2">
-                    <Button size="sm" variant="secondary">
-                      <Eye className="h-4 w-4" />
-                    </Button>
-                    <Button size="sm" variant="secondary">
-                      <Edit className="h-4 w-4" />
-                    </Button>
-                    <Button size="sm" variant="danger">
-                      <Trash2 className="h-4 w-4" />
-                    </Button>
-                  </div>
-                </td>
-              </tr>
-            ))}
-          </Table>
+          <div className="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
+            <table className="min-w-full divide-y divide-gray-300">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Número
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Cédula
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Nombre Completo
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Teléfono
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Estado
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Acciones
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="bg-white divide-y divide-gray-200">
+                {filteredSocios.map((socio: Socio) => (
+                  <tr key={socio.idSocio} className="hover:bg-gray-50">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                      {socio.numeroSocio || "N/A"}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      {socio.cedula || "N/A"}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      {`${socio.nombres || ""} ${
+                        socio.apellidos || ""
+                      }`.trim() || "N/A"}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      {socio.telefono || "N/A"}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      <span
+                        className={`inline-flex px-2 py-1 text-xs font-medium rounded-full ${
+                          socio.estado === "Activo"
+                            ? "bg-green-100 text-green-800"
+                            : socio.estado === "Inactivo"
+                            ? "bg-red-100 text-red-800"
+                            : "bg-gray-100 text-gray-800"
+                        }`}
+                      >
+                        {socio.estado || "N/A"}
+                      </span>
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                      <div className="flex space-x-2">
+                        <Button size="sm" variant="secondary">
+                          <Eye className="h-4 w-4" />
+                        </Button>
+                        <Button
+                          size="sm"
+                          variant="secondary"
+                          onClick={() => handleEdit(socio)}
+                        >
+                          <Edit className="h-4 w-4" />
+                        </Button>
+                        <Button size="sm" variant="danger">
+                          <Trash2 className="h-4 w-4" />
+                        </Button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         ) : (
           <div className="text-center py-12">
             <Users className="mx-auto h-12 w-12 text-gray-400" />
@@ -152,50 +209,12 @@ export default function Socios() {
         )}
       </Card>
 
-      {/* Create Modal Placeholder */}
-      {showCreateModal && (
-        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
-          <div className="relative top-20 mx-auto p-5 border w-full max-w-2xl shadow-lg rounded-md bg-white">
-            <div className="flex justify-between items-center mb-4">
-              <h3 className="text-lg font-medium text-gray-900">
-                Crear Nuevo Socio
-              </h3>
-              <Button
-                variant="secondary"
-                onClick={() => setShowCreateModal(false)}
-              >
-                Cerrar
-              </Button>
-            </div>
-            <div className="space-y-4">
-              <Input label="Cédula" placeholder="Ingrese la cédula" />
-              <div className="grid grid-cols-2 gap-4">
-                <Input label="Nombres" placeholder="Ingrese los nombres" />
-                <Input label="Apellidos" placeholder="Ingrese los apellidos" />
-              </div>
-              <Input
-                label="Correo Electrónico"
-                type="email"
-                placeholder="correo@ejemplo.com"
-              />
-              <Input label="Teléfono" placeholder="Ingrese el teléfono" />
-              <Input label="Dirección" placeholder="Ingrese la dirección" />
-              <div className="grid grid-cols-2 gap-4">
-                <Input label="Ciudad" placeholder="Ingrese la ciudad" />
-                <Input label="Fecha de Nacimiento" type="date" />
-              </div>
-              <div className="flex justify-end space-x-2 mt-6">
-                <Button
-                  variant="secondary"
-                  onClick={() => setShowCreateModal(false)}
-                >
-                  Cancelar
-                </Button>
-                <Button>Crear Socio</Button>
-              </div>
-            </div>
-          </div>
-        </div>
+      {showForm && (
+        <SocioForm
+          socio={editingSocio}
+          onSuccess={handleFormSuccess}
+          onCancel={handleFormCancel}
+        />
       )}
     </div>
   );

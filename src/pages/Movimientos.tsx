@@ -2,7 +2,6 @@ import { useState } from "react";
 import {
   Card,
   Button,
-  Table,
   LoadingSpinner,
   Alert,
   Input,
@@ -267,23 +266,40 @@ export default function Movimientos() {
       {/* Results */}
       <Card title={`Movimientos (${filteredMovimientos.length})`}>
         {filteredMovimientos.length > 0 ? (
-          <Table
-            headers={[
-              "Fecha",
-              "Tipo",
-              "Cuenta",
-              "Descripción",
-              "Monto",
-              "Saldo Nuevo",
-              "Comprobante",
-            ]}
-          >
-            {filteredMovimientos
-              .sort(
-                (a, b) =>
-                  new Date(b.fechaMovimiento || "").getTime() -
-                  new Date(a.fechaMovimiento || "").getTime()
-              )
+          <div className="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
+            <table className="min-w-full divide-y divide-gray-300">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Fecha
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Tipo
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Cuenta
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Descripción
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Monto
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Saldo Nuevo
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Comprobante
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="bg-white divide-y divide-gray-200">
+                {filteredMovimientos
+                  .sort(
+                    (a, b) =>
+                      new Date(b.fechaMovimiento || "").getTime() -
+                      new Date(a.fechaMovimiento || "").getTime()
+                  )
               .map((movimiento: MovimientosAhorro) => {
                 const cuenta = cuentasArray.find(
                   (c) => c.idCuentaAhorro === movimiento.idCuentaAhorro
@@ -351,7 +367,9 @@ export default function Movimientos() {
                   </tr>
                 );
               })}
-          </Table>
+              </tbody>
+            </table>
+          </div>
         ) : (
           <div className="text-center py-12">
             <ArrowUpDown className="mx-auto h-12 w-12 text-gray-400" />
