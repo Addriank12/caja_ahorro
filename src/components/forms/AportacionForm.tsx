@@ -177,10 +177,14 @@ export default function AportacionForm({
               type="number"
               step="0.01"
               min="0.01"
-              {...register("monto", { valueAsNumber: true })}
+              {...register("monto", {
+                valueAsNumber: true,
+                setValueAs: (v) => parseFloat(Number(v).toFixed(2)),
+              })}
               error={errors.monto?.message}
               placeholder="0.00"
             />
+
 
             <Input
               label="Número de Comprobante"
