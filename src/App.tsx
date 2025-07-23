@@ -5,6 +5,7 @@ import Socios from "./pages/Socios";
 import CuentasAhorro from "./pages/CuentasAhorro";
 import Movimientos from "./pages/Movimientos";
 import Aportaciones from "./pages/Aportaciones";
+import Creditos from "./pages/Creditos";
 import "./App.css";
 
 function App() {
@@ -17,14 +18,7 @@ function App() {
           <Route path="/cuentas-ahorro" element={<CuentasAhorro />} />
           <Route path="/movimientos" element={<Movimientos />} />
           <Route path="/aportaciones" element={<Aportaciones />} />
-          <Route
-            path="/creditos"
-            element={
-              <div className="text-center py-12">
-                <h2>Módulo de Créditos - Próximamente</h2>
-              </div>
-            }
-          />
+          <Route path="/creditos" element={<Creditos />} />
           <Route
             path="/configuracion"
             element={
