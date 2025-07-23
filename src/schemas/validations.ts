@@ -1,11 +1,12 @@
 import { z } from "zod";
-
+import { VALIDATION_RULES } from "../config/constants";
 // Schema para Socio
 export const socioSchema = z.object({
   cedula: z
     .string()
-    .min(6, "La cédula debe tener al menos 6 dígitos")
-    .max(10, "La cédula no puede tener más de 10 dígitos"),
+    .min(VALIDATION_RULES.CEDULA.MIN_LENGTH, "La cédula debe tener al menos 6 dígitos")
+    .max(VALIDATION_RULES.CEDULA.MAX_LENGTH, "La cédula no puede tener más de 10 dígitos")
+    .regex(VALIDATION_RULES.CEDULA.PATTERN, "La cédula debe contener solo números"),
   nombres: z
     .string()
     .min(2, "Los nombres deben tener al menos 2 caracteres")

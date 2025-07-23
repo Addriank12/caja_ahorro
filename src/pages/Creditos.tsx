@@ -17,14 +17,16 @@ export default function Creditos() {
   const [creditos, setCreditos] = useState<Credito[]>([]);
   const [cedulaFiltro, setCedulaFiltro] = useState('');
 
-  const fetchCreditos = async () => {
-    try {
-      const response = await axios.get('/api/Creditos');
-      setCreditos(response.data);
-    } catch (error) {
-      console.error('Error al cargar los créditos', error);
-    }
-  };
+const fetchCreditos = async () => {
+  try {
+    const response = await axios.get('/api/Creditos');
+    const data = Array.isArray(response.data) ? response.data : [];
+    console.log("Créditos cargados:", data.length);
+    setCreditos(data);
+  } catch (error) {
+    console.error('Error al cargar los créditos', error);
+  }
+};
 
   useEffect(() => {
     fetchCreditos();

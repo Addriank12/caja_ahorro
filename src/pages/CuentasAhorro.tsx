@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Card,
   Button,
@@ -25,6 +25,11 @@ export default function CuentasAhorroPage() {
 
   const loading = cuentasLoading || sociosLoading;
 
+  useEffect(() => {
+  console.log("CuentasAhorroPage montado");
+  console.log("Total cuentas cargadas:", cuentas?.length || 0);
+  console.log("Total socios cargados:", socios?.length || 0);
+}, [cuentas, socios]);
   if (loading) {
     return (
       <div className="flex items-center justify-center h-64">

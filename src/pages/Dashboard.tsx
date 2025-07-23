@@ -2,6 +2,13 @@ import { Card, LoadingSpinner, Alert } from "../components/ui";
 import { useSocios, useCuentasAhorro, useAportaciones } from "../hooks/useApi";
 import { Users, CreditCard, Banknote, TrendingUp } from "lucide-react";
 
+const getSaludo = () => {
+  const hora = new Date().getHours();
+  if (hora < 12) return "¡Buenos días!";
+  if (hora < 18) return "¡Buenas tardes!";
+  return "¡Buenas noches!";
+};
+
 export default function Dashboard() {
   const {
     data: socios,
@@ -23,6 +30,8 @@ export default function Dashboard() {
   const error = sociosError || cuentasError || aportacionesError;
 
   if (loading) {
+    <h2 className="text-xl font-semibold text-gray-800">{getSaludo()}</h2>
+
     return (
       <div className="flex items-center justify-center h-64">
         <LoadingSpinner size="lg" />
