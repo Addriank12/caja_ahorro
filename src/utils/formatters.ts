@@ -243,6 +243,14 @@ export const getInitials = (name: string | null | undefined): string => {
     .slice(0, 2);
 };
 
+/**
+ * Formatea un número a dos decimales (sin símbolo monetario)
+ */
+export const formatearDecimal = (valor: number): string => {
+  return valor.toFixed(2);
+};
+
+
 export default {
   formatCurrency,
   formatDate,
