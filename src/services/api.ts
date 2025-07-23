@@ -1,6 +1,6 @@
 // En desarrollo, usar el proxy de Vite (ruta relativa)
 // En producción, usar la URL completa del backend
-const API_BASE_URL = import.meta.env.DEV ? "" : "https://localhost:7006";
+const API_BASE_URL = import.meta.env.DEV ? "" : "http://localhost:5175";
 
 class ApiService {
   private baseURL: string;

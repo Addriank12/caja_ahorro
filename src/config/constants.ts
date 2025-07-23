@@ -1,6 +1,6 @@
 // Configuración de la aplicación
 export const API_CONFIG = {
-  BASE_URL: process.env.REACT_APP_API_URL || "https://localhost:7006",
+  BASE_URL: process.env.REACT_APP_API_URL || "http://localhost:5175",
   TIMEOUT: 30000,
 };
 
