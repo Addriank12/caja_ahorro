@@ -185,15 +185,19 @@ export default function CuentaAhorroForm({
             />
           </div>
 
-          <Input
-            label="Saldo Actual *"
-            type="number"
-            step="0.01"
-            min="0"
-            {...register("saldoActual", { valueAsNumber: true })}
-            error={errors.saldoActual?.message}
-            placeholder="0.00"
-          />
+        <Input
+          label="Saldo Actual *"
+          type="number"
+          step="0.01"
+          min="0"
+          {...register("saldoActual", {
+            valueAsNumber: true,
+            setValueAs: (v) => parseFloat(Number(v).toFixed(2)),
+          })}
+          error={errors.saldoActual?.message}
+          placeholder="0.00"
+        />
+
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
