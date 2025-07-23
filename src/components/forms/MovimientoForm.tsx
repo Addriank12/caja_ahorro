@@ -162,16 +162,19 @@ export default function MovimientoForm({
             />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Input
               label="Monto *"
               type="number"
               step="0.01"
               min="0.01"
-              {...register("monto", { valueAsNumber: true })}
+              {...register("monto", {
+                valueAsNumber: true,
+                setValueAs: (v) => parseFloat(Number(v).toFixed(2)),
+              })}
               error={errors.monto?.message}
               placeholder="0.00"
             />
+
 
             <Input
               label="Número de Comprobante"
