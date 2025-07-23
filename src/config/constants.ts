@@ -10,6 +10,11 @@ export const PAGINATION_CONFIG = {
   PAGE_SIZE_OPTIONS: [5, 10, 25, 50, 100],
 };
 
+
+// Número predeterminado de elementos por página para paginación
+export const DEFAULT_PAGE_SIZE = 10;
+
+
 // Estados de entidades
 export const ESTADOS = {
   SOCIO: {
